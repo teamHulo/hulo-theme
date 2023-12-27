@@ -1,0 +1,37 @@
+.logo_left{
+    grid-template-areas: 'logo nav secondary-nav';
+    grid-template-columns: auto auto 1fr;
+}
+.navigation_center{
+    grid-template-areas: 'logo nav secondary-nav';
+    grid-template-columns: auto  1fr auto;
+}
+.navigation_center .nav{
+    display:flex;
+    justify-content: center;
+}
+.logo_center{
+    grid-template-areas: 'nav logo secondary-nav';
+    grid-template-columns: 1fr  auto 1fr;
+}
+.logo_center .logo{
+    display:flex;
+    justify-content: center;
+}
+.navigation_below{
+    grid-template-areas: ". logo secondary-nav" "nav nav nav";
+    grid-template-columns: 1fr  auto 1fr;
+}
+
+.navigation_below .nav{
+    display:flex;
+    justify-content: center;
+}
+.menu_drawer{
+    grid-template-areas: "burger logo secondary-nav";
+    grid-template-columns: 1fr  auto 1fr;
+}
+.header-sticky{
+    top:0;
+    position: sticky;
+}
