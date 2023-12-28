@@ -47,7 +47,7 @@
     "custom-header": {
       "type": "custom-header",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "background-2",
         "aligmant_navigation": "logo_left",
         "sticky": true,
         "logo_width": 300,
