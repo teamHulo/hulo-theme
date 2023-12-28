@@ -44,8 +44,17 @@
         "padding_bottom": 20
       }
     },
-    "custom-header":{
-      "type": "custom-header"
+    "custom-header": {
+      "type": "custom-header",
+      "settings": {
+        "color_scheme": "",
+        "aligmant_navigation": "logo_left",
+        "sticky": true,
+        "logo_width": 300,
+        "mobile_logo_width": 200,
+        "menu": "main-menu",
+        "mobile_menu": ""
+      }
     }
   },
   "order": [
