@@ -1,0 +1,69 @@
+<custom-header-drawer>
+    <div class="custom-header-drawer__wrap">
+        <div class="overlay"></div>
+        <div class="custom-header-drawer__content">
+            <div class="header">
+                <a href="#" close-drawer>{% render 'icon-close' %}</a>
+            </div>
+            <div class="panels-list">
+                <div class="main-panel">
+                    <div class="content-scroll">
+                        <ul>
+                            {% for link in navigation.links %}
+                                <li class="main-linklist-item" style="--i:{{forloop.index}}">
+                                    {% if  link.links != blank%}
+                                        <button class="header-sidebar__linklist-button" data-panel panel-open="{{link.title}}">
+                                            {{link.title}}
+                                            {% render 'icon-caret' %}
+                                        </button>
+                                    {% else %}
+                                        <a class="header-sidebar__linklist-button" href="{{link.url}}">{{link.title}}</a>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="content-footer">
+
+                    </div>
+                </div>
+                <secondary-panels>
+                    <div class="content-scroll">
+                        {% for link in navigation.links %}
+                            {% if  link.links != blank%}
+                                <div class="panel" data-title="{{link.title}}" hidden>
+                                    <button class="child-linklist-item" style="--i:1" data-close-panel>
+                                        {% render 'icon-caret' %} {{link.title}} 
+                                    </button>
+                                    <ul class="childlink-list-panel">
+                                        {% for childlink in link.links %}
+                                            <li class="child-linklist-item" style="--i:{{forloop.index | plus: 1}}">
+                                                {% if childlink.links != blank %}
+                                                    <details class="grandclild-menu">
+                                                        <summary>
+                                                            <span>{{childlink.title}}</span>
+                                                            {% render 'icon-caret' %}
+                                                        </summary>
+                                                        <ul class="grandchild-list">
+                                                            {% for grandchildlink in childlink.links %}
+                                                                <li>
+                                                                    <a class="h6" href="{{grandchildlink.url}}">{{grandchildlink.title}}</a>
+                                                                </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </details>
+                                                {% else %}
+                                                    <a class="header-sidebar__linklist-button " href="{{childlink.url}}">{{childlink.title}}</a>
+                                                {% endif %}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </secondary-panels>
+            </div>
+        </div>
+    </div>
+</custom-header-drawer>

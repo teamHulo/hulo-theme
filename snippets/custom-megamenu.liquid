@@ -1,0 +1,77 @@
+{% assign counter = 0 %}
+<div class="megamenu">
+    <div class="megamenu__wrap">
+        <div class="megamenu-items">
+            {% for childlink in megamenu %}
+                {%  assign counter = counter | plus: 1 %} 
+                {% if  childlink.links != blank %}
+                    
+                    <div class="megamenu-item element-animate" style="--i: {{counter}}">
+                        <div class="megamenu-item-link">
+                            <a href="{{childlink.url}}"> {{childlink.title}}</a> 
+                        </div>
+                        <ul>
+                            {% for grandchildlink in childlink.links %}
+                                <li>
+                                    <a class="h6" href="{{grandchildlink.url}}">{{grandchildlink.title}}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% else %}
+                <div class="megamenu-item element-animate" style="--i: {{counter}}">
+                    <div class="megamenu-item-link">
+                        <a href="{{childlink.url}}"> {{childlink.title}}</a> 
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="image-items ">
+            <div class="image-items__wrap">
+                <div class="image-item element-animate" style="--i: {{counter | plus:1}}">
+                    {% if  blocks[0].image1 != blank%}
+                        <div class="image">
+                            <div class="image__wrap">
+                                <img src="{{blocks[0].image1 | img_url: 'master'}}" alt="">
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if  blocks[0].image1_heading != blank%}
+                        <div class="title">
+                            <h2>
+                                {{ blocks[0].image1_heading }}
+                            </h2>
+                        </div>
+                    {% endif %}
+                    {% if  blocks[0].image1_text != blank%}
+                        <div class="text">
+                            {{ blocks[0].image1_text }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="image-item element-animate" style="--i: {{counter | plus:2}}">
+                    {% if  blocks[0].image2 != blank%}
+                        <div class="image">
+                            <div class="image__wrap">
+                                <img src="{{blocks[0].image2 | img_url: 'master'}}" alt="">
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if  blocks[0].image2_heading != blank%}
+                        <div class="title">
+                            <h2>
+                                {{ blocks[0].image2_heading }}
+                            </h2>
+                        </div>
+                    {% endif %}
+                    {% if  blocks[0].image2_text != blank%}
+                        <div class="text">
+                            {{ blocks[0].image2_text }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

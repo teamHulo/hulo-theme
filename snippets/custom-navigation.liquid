@@ -1,9 +1,51 @@
-<nav class="nav">
-    <ul class="nav-list">
-        {% for link in navigation.links %}
-            <li>
-                <a class="h6" href="{{link.url}}">{{link.title}}</a>
-            </li>
-        {% endfor %}
-    </ul>
-</nav>
+<custom-menu>
+    <nav class="nav">
+        <ul class="nav-list">
+            {% for link in navigation.links %}
+                <li>
+                    {% if  link.links != blank%}
+                    <custom-menu-item>
+                        <details class="child-menu second-levels">
+                            <summary>
+                                <span>{{link.title}}</span>
+                            </summary>
+                            {%  assign  array = blocks | map: 'settings' | where: 'menu_item', link.title %}
+                            {% if array.size == 0 %}
+                           
+                                <ul class="child-list">
+                                    {% for childlink in link.links %}
+                                        <li class="element-animate" style="--i:{{forloop.index}}">
+                                            {% if childlink.links != blank %}
+                                                <details class="grandclild-menu">
+                                                    <summary>
+                                                        <span>{{childlink.title}}</span>
+                                                        {% render 'icon-caret' %}
+                                                    </summary>
+                                                    <ul class="grandchild-list">
+                                                        {% for grandchildlink in childlink.links %}
+                                                            <li class="element-animate" style="--i:{{forloop.index}}">
+                                                                <a class="h6" href="{{grandchildlink.url}}">{{grandchildlink.title}}</a>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </details>
+                                            {% else %}
+                                                <a class="h6" href="{{childlink.url}}">{{childlink.title}}</a>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                {% render 'custom-megamenu', megamenu: link.links, blocks:array %}
+                            {% endif %}
+                        </details>
+                    </custom-menu-item>
+                        
+                    {%else%}
+                        <a class="h6" href="{{link.url}}">{{link.title}}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</custom-menu>
