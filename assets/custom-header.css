@@ -129,11 +129,11 @@
         display:none;
     }
 }
-.child-menu:not([open]) .child-list > li.element-animate, .grandclild-menu:not([open]) .grandchild-list > li.element-animate{
+.child-menu:not([open]) .child-list > li.element-animate, .grandclild-menu:not([open]) .grandchild-list > li.element-animate, .child-menu:not([open]) .megamenu__wrap .element-animate{
     opacity: 0;
     transform: translateY(10px);
 }
-.child-menu[open] .child-list > li.element-animate, .grandclild-menu[open] .grandchild-list > li.element-animate {
+.child-menu[open] .child-list > li.element-animate, .grandclild-menu[open] .grandchild-list > li.element-animate, .child-menu[open] .megamenu__wrap .element-animate {
     opacity: 1;
     transform: translateY(0px);
     transition: all .3s ease-in-out;
