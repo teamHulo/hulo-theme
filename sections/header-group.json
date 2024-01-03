@@ -46,6 +46,25 @@
     },
     "custom-header": {
       "type": "custom-header",
+      "blocks": {
+        "c7359f7d-7bee-4cf9-a170-17aff037392a": {
+          "type": "mega-menu",
+          "settings": {
+            "menu_item": "About us",
+            "image1": "shopify:\/\/shop_images\/image_11_4.jpg",
+            "image1_heading": "test",
+            "image1_text": "<p>lorem lorem lorem<\/p>",
+            "url_1": "",
+            "image2": "shopify:\/\/shop_images\/image_11_3.jpg",
+            "image2_heading": "test 2",
+            "image2_text": "<p>lorem lorem lorem<\/p>",
+            "url_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "c7359f7d-7bee-4cf9-a170-17aff037392a"
+      ],
       "settings": {
         "color_scheme": "",
         "aligmant_navigation": "logo_left",
